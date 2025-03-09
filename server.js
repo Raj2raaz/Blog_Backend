@@ -15,7 +15,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173", 
-  "https://blogi-subham.netlify.app/", 
+  process.env.FRONTEND_URL,
 ];
 const PORT = process.env.PORT || 4000;
 
@@ -32,6 +32,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.error("CORS Error: Origin not allowed ->", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
