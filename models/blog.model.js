@@ -13,12 +13,15 @@ const BlogSchema = new mongoose.Schema(
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // Reference to the User model
+      ref: "User", 
       required: true,
     },
+    image: {
+      type: String
+    }
   },
   {
-    timestamps: true, // Automatically adds createdAt & updatedAt fields
+    timestamps: true, 
   }
 );
 
